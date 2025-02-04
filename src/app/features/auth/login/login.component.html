@@ -1,0 +1,29 @@
+<div class="row align-items-center justify-content-center mt-5 pt-5">
+    <div class="col-xl-5">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center">LOGIN TO AUTH APP</h4>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-floating">
+                        <input formControlName="username" class="form-control" placeholder="Enter UserName" type="text">
+                        <label for="Name" class="form-label">Enter UserName</label>
+                        <div *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched" class="text-danger small">
+                            Username is required.
+                        </div>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input formControlName="password" class="form-control" placeholder="Enter Password" type="password">
+                        <label for="Name" class="form-label">Enter Passwrod</label>
+                        <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="text-danger small">
+                            Password is required.
+                        </div>
+                    </div>
+                    <hr>
+                    <button class="btn btn-primary w-100 btn-block" [disabled]="loginForm.invalid">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
