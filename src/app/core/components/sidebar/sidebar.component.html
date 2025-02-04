@@ -1,0 +1,41 @@
+<div class="sidebar" [class.collapsed]="isCollapsed">
+    <!-- <button class="toggle-btn d-flex align-items-center justify-content-end w-100" (click)="isCollapsed = !isCollapsed">
+      ☰
+    </button>
+   -->
+    <div class="border p-2 rounded-2">
+      <img src="/" class="img-fluid" width="200px" alt="profile">
+      <p class="mb-0">hardik singh</p>
+    </div>
+    <ul class="menu">
+      <li>
+        <a>Dashboard</a>
+      </li>
+      
+      <li>
+        <a (click)="isSubMenuCollapsed = !isSubMenuCollapsed">
+          Features
+          <span [class.rotate]="!isSubMenuCollapsed">▼</span>
+        </a>
+        <ul class="submenu" [ngbCollapse]="isSubMenuCollapsed">
+          <li><a href="#">Feature 1</a></li>
+          <li><a href="#">Feature 2</a></li>
+          <li>
+            <a (click)="isSubSubMenuCollapsed = !isSubSubMenuCollapsed">
+              More Features
+              <span [class.rotate]="!isSubSubMenuCollapsed">▼</span>
+            </a>
+            <ul class="sub-submenu" [ngbCollapse]="isSubSubMenuCollapsed">
+              <li><a href="#">Sub Feature 1</a></li>
+              <li><a href="#">Sub Feature 2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+  
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
+  

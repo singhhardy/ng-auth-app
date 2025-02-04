@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+.sidebar{
+    position: fixed;
+}
+
+main{
+    margin-top: 20px;
+}
+
+.container{
+    max-width: 1400px;
+}
