@@ -12,11 +12,17 @@ export class SidebarComponent {
   isCollapsed = false; 
   isSubMenuCollapsed = true; 
   isSubSubMenuCollapsed = true;
+  currentUser: any;
 
   constructor(private authService: AuthServiceService){}
 
   ngOnInit(){
-    // this.authService.getCurrentUser().subscribe()
+    this.getCurrentUser()
+  }
+
+  getCurrentUser(): any {
+    const user = localStorage.getItem('user')
+    return this.currentUser = user ? JSON.parse(user) : null
   }
 
 }
