@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title mb-0">User Data</div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of UsersList.users">
+                        <td>{{user.firstName + ' ' + user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.address.address + ', ' + user.address.city + ', ' + user.address.country}}</td>
+                        <td class="text-nowrap">
+                            <button class="btn btn-warning btn-sm me-1" (click)="editUser(user)">Edit</button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteUser(user)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

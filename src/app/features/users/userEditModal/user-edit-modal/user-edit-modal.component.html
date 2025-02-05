@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h5 class="modal-title">Edit User</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+  </div>
+  
+  <div class="modal-body">
+    <form class="row g-2" (ngSubmit)="onSubmit()">
+        <div class="col-xl-6">
+            <div class="form-floating">
+                <input class="form-control" type="text" name="Name" placeholder="Enter Name" >
+                <label class="form-label" for="Name">Name</label>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="form-floating">
+                <input class="form-control" type="email" placeholder="Enter Email" name="name" >
+                <label class="form-label" for="Name">Email</label>
+            </div>
+        </div>
+        <div class="col-xl-12">
+            <div class="form-floating">
+                <textarea class="form-control h-100" type="text" name="address" placeholder="Enter Address"></textarea>
+                <label class="form-label" for="Name">Address</label>
+            </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Cancel</button>
+        <button type="button" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+  

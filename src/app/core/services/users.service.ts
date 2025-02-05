@@ -15,4 +15,12 @@ export class UsersService {
     return this.http.get<any[]>(`${this.apiUrl}/users`)
   }
 
+  getSingleUser(userId: Number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/users/${userId}`)
+  }
+
+  updateUser(userId: Number, userData: any): Observable<any[]>{
+    return this.http.put<any[]>(`${this.apiUrl}/users/${userId}`, userData)
+  }
+
 }
