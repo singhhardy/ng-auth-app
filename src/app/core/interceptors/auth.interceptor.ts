@@ -17,8 +17,10 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
   return next(authReq).pipe(
     catchError(error => {
       if (error.status === 401) {
+        console.log('Access Token successful, retrying request...')
         return authService.refreshToken().pipe(
           switchMap(res => {
+            console.log('Refresh token successful, retrying request')
             localStorage.setItem('accessToken', res.token);
             const newAuthReq = req.clone({
               setHeaders: { Authorization: `Bearer ${res.token}` }
@@ -26,6 +28,7 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
             return next(newAuthReq);
           }),
           catchError(refreshError => {
+            console.log('Refresh token failed')
             authService.logout();
             return throwError(() => refreshError);
           })

@@ -13,6 +13,7 @@ import { UserEditModalComponent } from '../../userEditModal/user-edit-modal/user
 })
 export class UsersTableComponent {
   UsersList: any = { users: [] };
+  selectedUser: any;
 
   constructor(private userService: UsersService, private modalService: NgbModal){}
   
@@ -31,8 +32,18 @@ export class UsersTableComponent {
     modalRef.componentInstance.user = user
   }
 
-  deleteUser(user: any){
-    console.log(user)
+  deleteUser(user: any, content: any){
+    this.selectedUser = user
+    this.modalService.open(content, {size: 'md', backdrop: 'static'})
+  }
+
+  confirmDelete(){
+    this.userService.deleteUser(this.selectedUser.id).subscribe({
+      next: (res) => {
+        console.log(res)
+        this.modalService.dismissAll()
+      }
+    })
   }
 
 }

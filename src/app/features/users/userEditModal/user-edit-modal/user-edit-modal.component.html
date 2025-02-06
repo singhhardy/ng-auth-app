@@ -7,25 +7,31 @@
     <form class="row g-2" (ngSubmit)="onSubmit()">
         <div class="col-xl-6">
             <div class="form-floating">
-                <input class="form-control" type="text" name="Name" placeholder="Enter Name" >
-                <label class="form-label" for="Name">Name</label>
+                <input class="form-control" type="text" name="firstName" placeholder="Enter FirstName" [(ngModel)]="firstName" >
+                <label class="form-label" for="Name">First Name</label>
+            </div>
+        </div>
+        <div class="col-xl-6">
+          <div class="form-floating">
+              <input class="form-control" type="text" name="Name" placeholder="Enter LastName" [(ngModel)]="lastName" >
+              <label class="form-label" for="Name">Last Name</label>
+          </div>
+      </div>
+        <div class="col-xl-6">
+            <div class="form-floating">
+                <input class="form-control" type="email" placeholder="Enter Email" name="email" [(ngModel)]="email" >
+                <label class="form-label" for="Name">Email</label>
             </div>
         </div>
         <div class="col-xl-6">
             <div class="form-floating">
-                <input class="form-control" type="email" placeholder="Enter Email" name="name" >
-                <label class="form-label" for="Name">Email</label>
-            </div>
-        </div>
-        <div class="col-xl-12">
-            <div class="form-floating">
-                <textarea class="form-control h-100" type="text" name="address" placeholder="Enter Address"></textarea>
+                <textarea class="form-control" type="text" name="address" [(ngModel)]="address" placeholder="Enter Address"></textarea>
                 <label class="form-label" for="Name">Address</label>
             </div>
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Cancel</button>
-        <button type="button" class="btn btn-primary">Save Changes</button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">Save Changes</button>
       </div>
     </form>
   </div>

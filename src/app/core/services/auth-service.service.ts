@@ -37,12 +37,14 @@ export class AuthServiceService {
   }
 
   getCurrentUser(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth/me`, {refreshToken: localStorage.getItem('refreshToken')}).pipe(
-      tap((res: any) => {
-        localStorage.setItem('refreshToken', res.refreshToken)
-      })
-    )
+    return this.http.get(`${this.apiUrl}/auth/me`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`, 
+      },
+      withCredentials: true,
+    });
   }
+  
 
   refreshToken(): Observable<any> {
     return this.http.post(`${this.apiUrl}/refresh`, { refreshToken: localStorage.getItem('refreshToken') }).pipe(

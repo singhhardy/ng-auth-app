@@ -2,7 +2,7 @@
     <div class="card-header">
         <div class="card-title mb-0">User Data</div>
     </div>
-    <div class="card-body">
+    <div class="card-body p-0">
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -17,10 +17,10 @@
                     <tr *ngFor="let user of UsersList.users">
                         <td>{{user.firstName + ' ' + user.lastName}}</td>
                         <td>{{user.email}}</td>
-                        <td>{{user.address.address + ', ' + user.address.city + ', ' + user.address.country}}</td>
+                        <td>{{user.address.address}}</td>
                         <td class="text-nowrap">
                             <button class="btn btn-warning btn-sm me-1" (click)="editUser(user)">Edit</button>
-                            <button class="btn btn-danger btn-sm" (click)="deleteUser(user)">Delete</button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteUser(user, content)">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -28,3 +28,18 @@
         </div>
     </div>
 </div>
+
+
+<ng-template #content let-modal>    
+    <div class="modal-header p-2 px-3">    
+        <h4 class="modal-title mb-0" id="modal-basic-title">Confirmation</h4>    
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>    
+    <div class="modal-body p-2 px-3">    
+        <p class="mb-0">Are you sure to delete this?</p>    
+    </div>    
+    <div class="modal-footer p-2 px-3">    
+        <button type="button" class="btn btn-sm btn-warning" (click)="modal.dismiss('Cross click')">Cancel</button>    
+        <button type="button" class="btn btn-sm btn-danger" (click)="confirmDelete()">Yes</button>    
+    </div>    
+</ng-template>

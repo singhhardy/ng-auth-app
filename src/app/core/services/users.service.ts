@@ -23,4 +23,8 @@ export class UsersService {
     return this.http.put<any[]>(`${this.apiUrl}/users/${userId}`, userData)
   }
 
+  deleteUser(userId: Number): Observable<any[]>{
+    return this.http.delete<any[]>(`${this.apiUrl}/users/${userId}`)
+  }
+
 }
