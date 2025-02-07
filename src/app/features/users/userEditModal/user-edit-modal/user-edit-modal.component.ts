@@ -28,10 +28,10 @@ export class UserEditModalComponent {
 
   onSubmit(){
     const updatedUser = {
-      firstName:this.user.firstName = this.firstName,
-      lastName: this.user.lastName = this.lastName,
-      email:this.user.email = this.email,
-      address:this.user.address.address = this.address
+      firstName: this.firstName,
+      lastName: this.lastName,
+      email: this.email,
+      address: this.address
     }
 
     console.log(updatedUser);
